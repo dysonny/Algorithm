@@ -1,0 +1,54 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Main {
+    static Queue<Integer> queue;   // 전역변수를 사용하여, main함수 외에도 사용 가능하게 선언
+    static StringBuilder sb;
+
+    public static void main(String[] args) throws IOException {
+        queue = new LinkedList<>();
+        sb= new StringBuilder();
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        String s;
+
+        StringTokenizer st;
+
+        for (int i=0;i<n;i++){
+            st=new StringTokenizer(br.readLine());
+            s = st.nextToken();
+            if (s.equals("push"))
+                push(Integer.parseInt(st.nextToken()));
+            if (s.equals("pop"))
+                pop();
+            if (s.equals("size"))
+                size();
+            if (s.equals("empty"))
+                empty();
+            if (s.equals("front"))
+                front();
+            if (s.equals("back"))
+                back();
+        }
+        System.out.println(sb);
+    }
+
+    public void push(int a){
+        queue.add(a);
+    }
+
+    public void pop(){
+        if (queue.isEmpty()){
+            sb.append("-1/n");
+        }
+        else
+            sb.append(queue.remove() + '/n');
+    }
+
+    public void size(){
+
+    }
+}
